@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomTextInputLayout">
+        <item name="strokeColor">@color/pink_200</item>
+        <item name="hintTextColor">@color/ijo</item>
+    </style>
+
+    <style name="CustomTextInputEditText">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+</resources>

@@ -2,8 +2,12 @@ package com.dicoding.myapplication1.helper
 
 import com.dicoding.myapplication1.data.pref.UserModel
 import com.dicoding.myapplication1.data.pref.UserPreference
+import com.dicoding.myapplication1.data.response.ForgotResponse
 import com.dicoding.myapplication1.data.response.LoginResponse
+import com.dicoding.myapplication1.data.response.PostResponse
 import com.dicoding.myapplication1.data.response.RegisterResponse
+import com.dicoding.myapplication1.data.response.ResetResponse
+import com.dicoding.myapplication1.data.response.VerifyResponse
 import com.dicoding.myapplication1.data.retrofit.ApiService
 import kotlinx.coroutines.flow.Flow
 
@@ -37,15 +41,26 @@ class UserRepository private constructor(
         return response
     }
 
+    suspend fun forgotpassword(email: String): ForgotResponse {
+        return apiService.forgotpassword(email)
+    }
+
+    suspend fun verifycode(email: String, resetcode: String): VerifyResponse {
+        return apiService.verifycode(email, resetcode)
+    }
+
+    suspend fun resetpassword(email: String, newpassword: String, resetcode: String): ResetResponse {
+        return apiService.resetpassword(email, newpassword, resetcode)
+    }
+
+    suspend fun getAllPost(): PostResponse {
+        return apiService.getAllPost()
+    }
+
     companion object {
-        @Volatile
-        private var instance: UserRepository? = null
         fun getInstance(
             userPreference: UserPreference,
             apiService: ApiService
-        ): UserRepository =
-            instance ?: synchronized(this) {
-                instance ?: UserRepository(userPreference, apiService)
-            }.also { instance = it }
+        ) = UserRepository(userPreference, apiService)
     }
 }

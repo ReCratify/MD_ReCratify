@@ -5,19 +5,16 @@ import com.google.gson.annotations.SerializedName
 data class PostResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
+	val data: List<DataItem> = emptyList(),
 
 	@field:SerializedName("message")
 	val message: String? = null,
 
 	@field:SerializedName("status")
-	val status: String? = null
+	val status: Boolean? = null
 )
 
 data class DataItem(
-
-	@field:SerializedName("User")
-	val user: User? = null,
 
 	@field:SerializedName("description")
 	val description: String? = null,
@@ -32,10 +29,7 @@ data class DataItem(
 	val userId: String? = null,
 
 	@field:SerializedName("URL_Image")
-	val uRLImage: String? = null
-)
-
-data class User(
+	val uRLImage: String? = null,
 
 	@field:SerializedName("username")
 	val username: String? = null

@@ -8,26 +8,28 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
-import com.dicoding.myapplication1.databinding.ActivityForgotPasswordBinding
+import com.dicoding.myapplication1.databinding.ActivityVerifBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory
 
-class ForgotPasswordActivity : AppCompatActivity() {
-    private val viewModel by viewModels<ForgotPasswordViewModel> {
+class VerifActivity : AppCompatActivity() {
+    private val viewModel by viewModels<VerifViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
-    private lateinit var binding: ActivityForgotPasswordBinding
+    private lateinit var binding: ActivityVerifBinding
+    private lateinit var email: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
+        binding = ActivityVerifBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.forgotresult.observe(this) { result ->
+        email = intent.getStringExtra("email") ?: ""
+
+        viewModel.verif.observe(this) { result ->
             if (result?.error == true) {
             } else {
-                val email = binding.emailEditText.text.toString()
-                navigateToVerify(email)
+                navigateToReset(email)
             }
         }
 
@@ -53,14 +55,14 @@ class ForgotPasswordActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-        binding.sendButton.setOnClickListener {
-            val email = binding.emailEditText.text.toString()
-            viewModel.forgotpassword(email)
+        binding.resetButton.setOnClickListener {
+            val resetcode = binding.verifyEditText.text.toString()
+            viewModel.verifycode( email = String(), resetcode )
         }
     }
 
-    private fun navigateToVerify(email: String) {
-        val intent = Intent(this, VerifActivity::class.java)
+    private fun navigateToReset(email: String) {
+        val intent = Intent(this, CreatePasswordActivity::class.java)
         intent.putExtra("email", email)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)

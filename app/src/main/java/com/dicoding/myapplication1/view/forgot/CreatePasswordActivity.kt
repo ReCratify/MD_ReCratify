@@ -8,26 +8,30 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
-import com.dicoding.myapplication1.databinding.ActivityForgotPasswordBinding
+import com.dicoding.myapplication1.R
+import com.dicoding.myapplication1.databinding.ActivityCreatePasswordBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory
+import com.dicoding.myapplication1.view.login.LoginActivity
 
-class ForgotPasswordActivity : AppCompatActivity() {
-    private val viewModel by viewModels<ForgotPasswordViewModel> {
+class CreatePasswordActivity : AppCompatActivity() {
+    private val viewModel by viewModels<CreatePasswordViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
-    private lateinit var binding: ActivityForgotPasswordBinding
+    private lateinit var binding: ActivityCreatePasswordBinding
+    private lateinit var email: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
+        binding = ActivityCreatePasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.forgotresult.observe(this) { result ->
+        email = intent.getStringExtra("email") ?: ""
+
+        viewModel.create.observe(this) { result ->
             if (result?.error == true) {
             } else {
-                val email = binding.emailEditText.text.toString()
-                navigateToVerify(email)
+                navigateToLogin()
             }
         }
 
@@ -53,15 +57,15 @@ class ForgotPasswordActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
-        binding.sendButton.setOnClickListener {
-            val email = binding.emailEditText.text.toString()
-            viewModel.forgotpassword(email)
+        binding.saveButton.setOnClickListener {
+            val newpassword = binding.newEditText.text.toString()
+            val resetcode = binding.newEditText.text.toString()
+            viewModel.resetpassword( email = String(), newpassword, resetcode )
         }
     }
 
-    private fun navigateToVerify(email: String) {
-        val intent = Intent(this, VerifActivity::class.java)
-        intent.putExtra("email", email)
+    private fun navigateToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         finish()

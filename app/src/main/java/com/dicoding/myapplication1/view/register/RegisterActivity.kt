@@ -1,5 +1,6 @@
 package com.dicoding.myapplication1.view.register
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import com.dicoding.myapplication1.R
 import com.dicoding.myapplication1.data.response.RegisterResponse
 import com.dicoding.myapplication1.databinding.ActivityRegisterBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory
+import com.dicoding.myapplication1.view.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
     private val viewModel by viewModels<RegisterViewModel> {
@@ -57,6 +59,14 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.passwordEditText.text.toString()
 
             viewModel.register(name, email, password)
+        }
+        binding.daftarTextView.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+        binding.loginTextView.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 

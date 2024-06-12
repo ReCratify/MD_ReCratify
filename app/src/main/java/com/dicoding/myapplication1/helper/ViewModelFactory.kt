@@ -5,7 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.myapplication1.di.Injection
 import com.dicoding.myapplication1.ui.home.HomeViewModel
+import com.dicoding.myapplication1.ui.notifications.NotificationsViewModel
 import com.dicoding.myapplication1.view.add.AddViewModel
+import com.dicoding.myapplication1.view.forgot.CreatePasswordViewModel
+import com.dicoding.myapplication1.view.forgot.ForgotPasswordViewModel
+import com.dicoding.myapplication1.view.forgot.VerifViewModel
 import com.dicoding.myapplication1.view.login.LoginViewModel
 import com.dicoding.myapplication1.view.main.MainViewModel
 import com.dicoding.myapplication1.view.register.RegisterViewModel
@@ -23,27 +27,29 @@ class ViewModelFactory (private val repository: UserRepository) : ViewModelProvi
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(repository) as T
             }
+            modelClass.isAssignableFrom(ForgotPasswordViewModel::class.java) -> {
+                ForgotPasswordViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(VerifViewModel::class.java) -> {
+                VerifViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(CreatePasswordViewModel::class.java) -> {
+                CreatePasswordViewModel(repository) as T
+            }
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(repository) as T
             }
             modelClass.isAssignableFrom(AddViewModel::class.java) -> {
                 AddViewModel(repository) as T
             }
+            modelClass.isAssignableFrom(NotificationsViewModel::class.java) -> {
+                NotificationsViewModel(repository) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
 
     companion object {
-        @Volatile
-        private var INSTANCE: ViewModelFactory? = null
-        @JvmStatic
-        fun getInstance(context: Context): ViewModelFactory {
-            if (INSTANCE == null) {
-                synchronized(ViewModelFactory::class.java) {
-                    INSTANCE = ViewModelFactory(Injection.provideRepository(context))
-                }
-            }
-            return INSTANCE as ViewModelFactory
-        }
+        fun getInstance(context: Context) = ViewModelFactory(Injection.provideRepository(context))
     }
 }

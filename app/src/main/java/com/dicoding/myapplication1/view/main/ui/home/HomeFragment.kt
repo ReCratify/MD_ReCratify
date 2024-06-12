@@ -1,4 +1,4 @@
-package com.dicoding.myapplication1.ui.home
+package com.dicoding.myapplication1.view.main.ui.home
 
 import android.app.AlertDialog
 import android.content.Intent

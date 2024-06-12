@@ -1,4 +1,4 @@
-package com.dicoding.myapplication1.ui.profil
+package com.dicoding.myapplication1.view.main.ui.profil
 
 import androidx.lifecycle.ViewModel
 

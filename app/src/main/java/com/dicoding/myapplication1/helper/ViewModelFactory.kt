@@ -12,6 +12,7 @@ import com.dicoding.myapplication1.view.forgot.ForgotPasswordViewModel
 import com.dicoding.myapplication1.view.forgot.VerifViewModel
 import com.dicoding.myapplication1.view.login.LoginViewModel
 import com.dicoding.myapplication1.view.main.MainViewModel
+import com.dicoding.myapplication1.view.main.ui.profil.ProfilViewModel
 import com.dicoding.myapplication1.view.register.RegisterViewModel
 
 class ViewModelFactory (private val repository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
@@ -44,6 +45,9 @@ class ViewModelFactory (private val repository: UserRepository) : ViewModelProvi
             }
             modelClass.isAssignableFrom(NotificationsViewModel::class.java) -> {
                 NotificationsViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ProfilViewModel::class.java) -> {
+                ProfilViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

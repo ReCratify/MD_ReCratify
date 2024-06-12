@@ -7,11 +7,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.dicoding.myapplication1.R
 import com.dicoding.myapplication1.databinding.ActivityCreatePasswordBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory
 import com.dicoding.myapplication1.view.login.LoginActivity
+const val MIN_PASSWORD_LENGTH = 8
 
 class CreatePasswordActivity : AppCompatActivity() {
     private val viewModel by viewModels<CreatePasswordViewModel> {
@@ -30,6 +32,7 @@ class CreatePasswordActivity : AppCompatActivity() {
 
         viewModel.create.observe(this) { result ->
             if (result?.error == true) {
+                Toast.makeText(this, result.message, Toast.LENGTH_SHORT).show()
             } else {
                 navigateToLogin()
             }
@@ -59,10 +62,23 @@ class CreatePasswordActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.saveButton.setOnClickListener {
             val newpassword = binding.newEditText.text.toString()
-            val resetcode = binding.newEditText.text.toString()
-            viewModel.resetpassword( email = String(), newpassword, resetcode )
+            val resetcode = binding.confrimEditText.text.toString()
+            if (isPasswordValid(newpassword) && isResetCodeValid(resetcode)) {
+                viewModel.resetpassword(email, newpassword, resetcode)
+            } else {
+                Toast.makeText(this, "Reset code atau password baru tidak valid", Toast.LENGTH_SHORT).show()
+            }
         }
     }
+
+    private fun isResetCodeValid(resetcode: String): Boolean {
+        return resetcode.isNotBlank()
+    }
+
+    private fun isPasswordValid(password: String): Boolean {
+        return password.length >= MIN_PASSWORD_LENGTH
+    }
+
 
     private fun navigateToLogin() {
         val intent = Intent(this, LoginActivity::class.java)

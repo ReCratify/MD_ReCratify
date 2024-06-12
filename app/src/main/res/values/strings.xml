@@ -53,11 +53,12 @@
     <string name="reset_password">Reset Password</string>
     <string name="verify">verify</string>
     <string name="new_password">New Password</string>
-    <string name="confirm_password">Confirm Password</string>
+    <string name="confirm_verify">Confirm Verify</string>
     <string name="save">Save</string>
     <string name="reset_code">Reset Code</string>
     <string name="send">Send</string>
     <string name="name">Name</string>
     <string name="register">Register</string>
     <string name="title">Title</string>
+    <string name="confirm_kode_verify">Confirm Kode Verify</string>
 </resources>

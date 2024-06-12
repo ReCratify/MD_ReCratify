@@ -29,7 +29,7 @@ class VerifActivity : AppCompatActivity() {
         viewModel.verif.observe(this) { result ->
             if (result?.error == true) {
             } else {
-                navigateToReset(email)
+                navigateToReset(email,)
             }
         }
 
@@ -57,7 +57,7 @@ class VerifActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.resetButton.setOnClickListener {
             val resetcode = binding.verifyEditText.text.toString()
-            viewModel.verifycode( email = String(), resetcode )
+            viewModel.verifycode( email , resetcode )
         }
     }
 

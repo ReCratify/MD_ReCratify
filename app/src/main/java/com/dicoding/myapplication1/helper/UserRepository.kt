@@ -2,6 +2,7 @@ package com.dicoding.myapplication1.helper
 
 import com.dicoding.myapplication1.data.pref.UserModel
 import com.dicoding.myapplication1.data.pref.UserPreference
+import com.dicoding.myapplication1.data.response.FileUploadResponse
 import com.dicoding.myapplication1.data.response.ForgotResponse
 import com.dicoding.myapplication1.data.response.LoginResponse
 import com.dicoding.myapplication1.data.response.PostResponse
@@ -10,6 +11,11 @@ import com.dicoding.myapplication1.data.response.ResetResponse
 import com.dicoding.myapplication1.data.response.VerifyResponse
 import com.dicoding.myapplication1.data.retrofit.ApiService
 import kotlinx.coroutines.flow.Flow
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.File
 
 class UserRepository private constructor(
     private val userPreference: UserPreference,
@@ -55,6 +61,14 @@ class UserRepository private constructor(
 
     suspend fun getAllPost(): PostResponse {
         return apiService.getAllPost()
+    }
+
+    suspend fun uploadImage(file: File, title: String, description: String): FileUploadResponse {
+        val requestFile = file.asRequestBody("image/jpeg".toMediaType())
+        val multipartBody = MultipartBody.Part.createFormData("photo", file.name, requestFile)
+        val titleBody = title.toRequestBody("text/plain".toMediaType())
+        val descriptionBody = description.toRequestBody("text/plain".toMediaType())
+        return apiService.uploadImage(multipartBody, titleBody, descriptionBody)
     }
 
     companion object {

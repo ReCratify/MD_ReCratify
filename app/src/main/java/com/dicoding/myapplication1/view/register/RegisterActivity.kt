@@ -71,7 +71,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun handleRegisterResult(registerResponse: RegisterResponse) {
-        if (registerResponse.status == "success") {
+        if (registerResponse.error == false) {
             AlertDialog.Builder(this).apply {
                 setTitle("Yeah!")
                 setMessage("User Created")

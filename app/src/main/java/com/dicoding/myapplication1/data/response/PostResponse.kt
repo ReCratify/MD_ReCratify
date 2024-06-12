@@ -10,8 +10,8 @@ data class PostResponse(
 	@field:SerializedName("message")
 	val message: String? = null,
 
-	@field:SerializedName("status")
-	val status: Boolean? = null
+	@field:SerializedName("error")
+	val error: Boolean? = null
 )
 
 data class DataItem(

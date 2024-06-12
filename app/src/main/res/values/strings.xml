@@ -29,7 +29,7 @@
     <string name="confidence_score">Confidence Score</string>
     <string name="prediction">Prediction</string>
     <string name="text_reset">Silahkan masukkan email yang digunakan pada akun anda untuk melakukan reset password</string>
-
+    <string name="empty_text_warning">Silahkan masukkan text terlebih dahulu</string>
 
     //publish//Youtobe
     <string name="upload">Upload</string>
@@ -59,4 +59,5 @@
     <string name="send">Send</string>
     <string name="name">Name</string>
     <string name="register">Register</string>
+    <string name="title">Title</string>
 </resources>

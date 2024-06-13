@@ -12,7 +12,8 @@ import com.dicoding.myapplication1.databinding.ItemPostBinding
 class PostAdapter : ListAdapter<DataItem, PostAdapter.MyViewHolder>(DIFF_CALLBACK) {
     class MyViewHolder (val binding: ItemPostBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(post: DataItem) {
-            binding.tvpost.text = post.username
+            binding.tvname.text = post.username
+            binding.tvtitle.text = post.title
             binding.tvdescription.text = post.description
             Glide.with(binding.root.context)
                 .load(post.uRLImage)

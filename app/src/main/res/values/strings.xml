@@ -50,6 +50,8 @@
     <string name="desc_two">Lorem ipsum dolar sit amet, consectetur adpiscing elit, sed do eiudmod tempor incididunt ut labore</string>
     <string name="desc_three">Lorem ipsum dolar sit amet, consectetur adpiscing elit, sed do eiudmod tempor incididunt ut labore</string>
     <string name="desc_fourth">Lorem ipsum dolar sit amet, consectetur adpiscing elit, sed do eiudmod tempor incididunt ut labore</string>
+
+
     <string name="reset_password">Reset Password</string>
     <string name="verify">verify</string>
     <string name="new_password">New Password</string>
@@ -61,4 +63,6 @@
     <string name="register">Register</string>
     <string name="title">Title</string>
     <string name="confirm_kode_verify">Confirm Kode Verify</string>
+    <string name="upload_failed">Upload gagal</string>
+    <string name="upload_success">Upload berhasil</string>
 </resources>

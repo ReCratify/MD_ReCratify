@@ -16,6 +16,9 @@ data class LoginResponse(
 
 data class LoginResult(
 
+	@field:SerializedName("username")
+	val username: String? = null,
+
 	@field:SerializedName("userId")
 	val userId: String? = null,
 

@@ -40,8 +40,8 @@ class UserRepository private constructor(
 
     suspend fun login(email: String, password: String): LoginResponse {
         val response = apiService.login(email, password)
-        if (response.error == true) {
-            val userModel = UserModel(email, response.loginResult?.token ?: "")
+        if (response.error == false) {
+            val userModel = UserModel(email, response.loginResult?.userId ?:"",response.loginResult?.token ?: "")
             userPreference.saveSession(userModel)
         }
         return response

@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
+        android:textColor="@color/black"
         android:text="@string/policy"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -50,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="24dp"
-        android:text="@string/masuk"
+        android:text="Login"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="@id/daftarTextView"
@@ -72,7 +73,7 @@
         android:id="@+id/emailEditTextLayout"
         style="@style/CustomTextInputLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
@@ -84,7 +85,7 @@
             android:id="@+id/emailEditText"
             style="@style/CustomTextInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:drawableStart="@drawable/email_icon"
             android:padding="10dp"
             android:ems="10"
@@ -98,7 +99,7 @@
         android:id="@+id/passwordEditTextLayout"
         style="@style/CustomTextInputLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
@@ -113,7 +114,7 @@
             android:id="@+id/passwordEditText"
             style="@style/CustomTextInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:drawableStart="@drawable/baseline_lock_24_focused"
             android:drawablePadding="10dp"
             android:padding="10dp"
@@ -127,16 +128,16 @@
         android:id="@+id/forgotpasswordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:text="@string/lupa_password"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#0386D0"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/passwordEditTextLayout"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginButton"
         android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
@@ -146,6 +147,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/forgotpasswordTextView" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:src="@drawable/login1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

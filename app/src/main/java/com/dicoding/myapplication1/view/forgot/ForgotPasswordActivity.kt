@@ -10,6 +10,7 @@ import android.view.WindowManager
 import androidx.activity.viewModels
 import com.dicoding.myapplication1.databinding.ActivityForgotPasswordBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory
+import com.dicoding.myapplication1.view.login.LoginActivity
 
 class ForgotPasswordActivity : AppCompatActivity() {
     private val viewModel by viewModels<ForgotPasswordViewModel> {
@@ -56,6 +57,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
         binding.sendButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
             viewModel.forgotpassword(email)
+        }
+        binding.backForgetPasswordBtn.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 

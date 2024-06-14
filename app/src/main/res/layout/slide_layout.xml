@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/onboarding_1"/>
 
     <TextView
         android:id="@+id/texttitle"
@@ -22,13 +22,14 @@
         android:text="@string/heading_one"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20sp"/>
+        android:textSize="25sp"/>
 
     <TextView
         android:id="@+id/textdescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/merriweather_sans_regular"
         android:text="@string/desc_one"
         android:textAlignment="center"

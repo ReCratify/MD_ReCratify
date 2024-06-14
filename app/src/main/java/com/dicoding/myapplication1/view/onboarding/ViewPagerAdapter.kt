@@ -13,9 +13,9 @@ import com.dicoding.myapplication1.R
 class ViewPagerAdapter (private val context: Context) : PagerAdapter() {
 
     private val images = arrayOf(
-        R.drawable.ig,
-        R.drawable.fb,
-        R.drawable.linkedin
+        R.drawable.onboarding_1,
+        R.drawable.onboarding_2,
+        R.drawable.onboarding_3
     )
 
     private val headings = arrayOf(

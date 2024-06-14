@@ -69,6 +69,10 @@ class CreatePasswordActivity : AppCompatActivity() {
                 Toast.makeText(this, "Reset code atau password baru tidak valid", Toast.LENGTH_SHORT).show()
             }
         }
+        binding.newPasswordBtn.setOnClickListener {
+            intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun isResetCodeValid(resetcode: String): Boolean {

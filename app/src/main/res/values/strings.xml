@@ -65,4 +65,5 @@
     <string name="confirm_kode_verify">Confirm Kode Verify</string>
     <string name="upload_failed">Upload gagal</string>
     <string name="upload_success">Upload berhasil</string>
+    <string name="text_home">Do you feel the temperature HOTTER than last Year ?</string>
 </resources>

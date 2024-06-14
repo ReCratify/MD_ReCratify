@@ -9,7 +9,6 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import com.dicoding.myapplication1.R
 import com.dicoding.myapplication1.data.response.RegisterResponse
 import com.dicoding.myapplication1.databinding.ActivityRegisterBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory

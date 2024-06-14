@@ -1,4 +1,4 @@
-package com.dicoding.myapplication1.ui.dashboard
+package com.dicoding.myapplication1.view.main.ui.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

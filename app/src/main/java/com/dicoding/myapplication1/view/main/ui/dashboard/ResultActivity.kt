@@ -1,4 +1,4 @@
-package com.dicoding.myapplication1.ui.dashboard
+package com.dicoding.myapplication1.view.main.ui.dashboard
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity

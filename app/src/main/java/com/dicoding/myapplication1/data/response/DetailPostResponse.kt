@@ -2,19 +2,19 @@ package com.dicoding.myapplication1.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class PostResponse(
+data class DetailPostResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem> = emptyList(),
-
-	@field:SerializedName("message")
-	val message: String? = null,
+	val data: Data? = null,
 
 	@field:SerializedName("error")
-	val error: Boolean? = null
+	val error: Boolean? = null,
+
+	@field:SerializedName("message")
+	val message: String? = null
 )
 
-data class DataItem(
+data class Data(
 
 	@field:SerializedName("description")
 	val description: String? = null,

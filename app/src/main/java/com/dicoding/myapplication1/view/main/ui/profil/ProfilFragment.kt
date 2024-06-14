@@ -1,41 +1,36 @@
-package com.dicoding.myapplication1.ui.home
+package com.dicoding.myapplication1.view.main.ui.profil
 
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.dicoding.myapplication1.R
-import com.dicoding.myapplication1.databinding.FragmentHomeBinding
+import com.dicoding.myapplication1.databinding.FragmentProfilBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory
 import com.dicoding.myapplication1.view.splashscreen.SplashActivity
 
-class HomeFragment : Fragment() {
+class ProfilFragment : Fragment() {
 
-    private val viewModel by viewModels<HomeViewModel> {
+    private val viewModel by viewModels<ProfilViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentProfilBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        binding = FragmentProfilBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
         return (binding.root)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -63,5 +58,4 @@ class HomeFragment : Fragment() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 }

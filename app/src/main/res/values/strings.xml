@@ -29,7 +29,7 @@
     <string name="confidence_score">Confidence Score</string>
     <string name="prediction">Prediction</string>
     <string name="text_reset">Silahkan masukkan email yang digunakan pada akun anda untuk melakukan reset password</string>
-
+    <string name="empty_text_warning">Silahkan masukkan text terlebih dahulu</string>
 
     //publish//Youtobe
     <string name="upload">Upload</string>
@@ -50,13 +50,20 @@
     <string name="desc_two">Lorem ipsum dolar sit amet, consectetur adpiscing elit, sed do eiudmod tempor incididunt ut labore</string>
     <string name="desc_three">Lorem ipsum dolar sit amet, consectetur adpiscing elit, sed do eiudmod tempor incididunt ut labore</string>
     <string name="desc_fourth">Lorem ipsum dolar sit amet, consectetur adpiscing elit, sed do eiudmod tempor incididunt ut labore</string>
+
+
     <string name="reset_password">Reset Password</string>
     <string name="verify">verify</string>
     <string name="new_password">New Password</string>
-    <string name="confirm_password">Confirm Password</string>
+    <string name="confirm_verify">Confirm Verify</string>
     <string name="save">Save</string>
     <string name="reset_code">Reset Code</string>
     <string name="send">Send</string>
     <string name="name">Name</string>
     <string name="register">Register</string>
+    <string name="title">Title</string>
+    <string name="confirm_kode_verify">Confirm Kode Verify</string>
+    <string name="upload_failed">Upload gagal</string>
+    <string name="upload_success">Upload berhasil</string>
+    <string name="text_home">Do you feel the temperature HOTTER than last Year ?</string>
 </resources>

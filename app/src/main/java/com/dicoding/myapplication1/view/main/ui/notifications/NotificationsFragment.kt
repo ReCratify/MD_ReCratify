@@ -1,4 +1,4 @@
-package com.dicoding.myapplication1.ui.notifications
+package com.dicoding.myapplication1.view.main.ui.notifications
 
 import android.content.Intent
 import android.os.Bundle

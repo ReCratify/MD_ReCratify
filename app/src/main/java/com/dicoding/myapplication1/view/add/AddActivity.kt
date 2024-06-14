@@ -1,5 +1,6 @@
 package com.dicoding.myapplication1.view.add
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,7 +13,10 @@ import androidx.activity.viewModels
 import com.dicoding.myapplication1.R
 import com.dicoding.myapplication1.databinding.ActivityAddBinding
 import com.dicoding.myapplication1.di.getImageUri
+import com.dicoding.myapplication1.di.reduceFileImage
+import com.dicoding.myapplication1.di.uriToFile
 import com.dicoding.myapplication1.helper.ViewModelFactory
+import com.dicoding.myapplication1.view.main.ui.profil.ProfilFragment
 
 class AddActivity : AppCompatActivity() {
     private val viewModel by viewModels<AddViewModel> {
@@ -27,6 +31,18 @@ class AddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel.uploadResult.observe(this){ result ->
+            showLoading(false)
+            if (result.error == true) {
+                showToast(result.message ?: getString(R.string.upload_failed))
+            } else {
+                showToast(getString(R.string.upload_success))
+                val intent = Intent(this, ProfilFragment::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
 
         viewModel.isLoading.observe(this){
             showLoading(it)
@@ -65,7 +81,23 @@ class AddActivity : AppCompatActivity() {
     }
 
     private fun uploadImage() {
-        Toast.makeText(this, "Fitur ini belum tersedia", Toast.LENGTH_SHORT).show()
+        currentImageUri?.let { uri ->
+            val imageFile = uriToFile(uri,this).reduceFileImage()
+            Log.d("Image File", "showImage: ${imageFile.path}")
+            val title = binding.EditTexttitle.text.toString().trim()
+            if (title.isEmpty()) {
+                showToast(getString(R.string.empty_text_warning))
+                return
+            }
+            val description = binding.EditTextdescription.text.toString().trim()
+            if (description.isEmpty()) {
+                showToast(getString(R.string.empty_text_warning))
+                return
+            }
+
+            showLoading(true)
+            viewModel.uploadImage(imageFile, title, description)
+        }?:showToast(getString(R.string.empty_image_warning))
     }
 
     private fun showLoading(isLoading: Boolean) {

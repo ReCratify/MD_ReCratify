@@ -2,6 +2,7 @@ package com.dicoding.myapplication1.helper
 
 import com.dicoding.myapplication1.data.pref.UserModel
 import com.dicoding.myapplication1.data.pref.UserPreference
+import com.dicoding.myapplication1.data.response.DetailPostResponse
 import com.dicoding.myapplication1.data.response.FileUploadResponse
 import com.dicoding.myapplication1.data.response.ForgotResponse
 import com.dicoding.myapplication1.data.response.LoginResponse
@@ -9,6 +10,7 @@ import com.dicoding.myapplication1.data.response.PostResponse
 import com.dicoding.myapplication1.data.response.RegisterResponse
 import com.dicoding.myapplication1.data.response.ResetResponse
 import com.dicoding.myapplication1.data.response.VerifyResponse
+import com.dicoding.myapplication1.data.response.YoutubeResponse
 import com.dicoding.myapplication1.data.retrofit.ApiService
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MediaType.Companion.toMediaType
@@ -63,12 +65,20 @@ class UserRepository private constructor(
         return apiService.getAllPost()
     }
 
+    suspend fun getDetailId(postId: String): DetailPostResponse {
+        return apiService.getDetailId(postId)
+    }
+
+    suspend fun getAllvideos(label: String): YoutubeResponse {
+        return apiService.getAllvideos(label)
+    }
+
     suspend fun uploadImage(file: File, title: String, description: String): FileUploadResponse {
         val requestFile = file.asRequestBody("image/jpeg".toMediaType())
-        val multipartBody = MultipartBody.Part.createFormData("photo", file.name, requestFile)
+        val multipartBody = MultipartBody.Part.createFormData("file", file.name, requestFile)
         val titleBody = title.toRequestBody("text/plain".toMediaType())
         val descriptionBody = description.toRequestBody("text/plain".toMediaType())
-        return apiService.uploadImage(multipartBody, titleBody, descriptionBody)
+        return apiService.uploadImage(titleBody, descriptionBody, multipartBody)
     }
 
     companion object {

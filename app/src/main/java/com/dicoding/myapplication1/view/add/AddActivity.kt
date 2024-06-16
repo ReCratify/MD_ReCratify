@@ -1,5 +1,6 @@
 package com.dicoding.myapplication1.view.add
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,8 @@ import com.dicoding.myapplication1.di.getImageUri
 import com.dicoding.myapplication1.di.reduceFileImage
 import com.dicoding.myapplication1.di.uriToFile
 import com.dicoding.myapplication1.helper.ViewModelFactory
+import com.dicoding.myapplication1.view.main.MainActivity
+import com.dicoding.myapplication1.view.main.ui.notifications.NotificationsFragment
 import com.dicoding.myapplication1.view.main.ui.profil.ProfilFragment
 
 class AddActivity : AppCompatActivity() {
@@ -38,9 +41,8 @@ class AddActivity : AppCompatActivity() {
                 showToast(result.message ?: getString(R.string.upload_failed))
             } else {
                 showToast(getString(R.string.upload_success))
-                val intent = Intent(this, ProfilFragment::class.java)
-                startActivity(intent)
                 finish()
+                (Activity as MainActivity).binding.navView.selectedItemId = R.id.navigation_notifications
             }
         }
 

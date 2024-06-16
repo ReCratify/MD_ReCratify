@@ -47,4 +47,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
+    fun setSelectedNavigationItem(ItemID: Int) {
+        nav
+    }
 }

@@ -2,22 +2,16 @@ package com.dicoding.myapplication1.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class YoutubeResponse(
+data class DetailYoutubeResponse(
 
-	@field:SerializedName("videos")
-	val videos: List<VideosItem> = emptyList(),
+	@field:SerializedName("Video")
+	val video: Video? = null,
 
-	@field:SerializedName("label")
-	val label: String? = null,
-
-	@field:SerializedName("status")
-	val error: Boolean? = null,
-
-	@field:SerializedName("message")
-	val message: String? = null,
+	@field:SerializedName("error")
+	val error: Boolean? = null
 )
 
-data class VideosItem(
+data class Video(
 
 	@field:SerializedName("URL_Thumbnail")
 	val uRLThumbnail: String? = null,
@@ -29,5 +23,8 @@ data class VideosItem(
 	val title: String? = null,
 
 	@field:SerializedName("Youtube_ID")
-	val youtubeID: String? = null
+	val youtubeID: String? = null,
+
+	@field:SerializedName("label")
+	val label: String? = null
 )

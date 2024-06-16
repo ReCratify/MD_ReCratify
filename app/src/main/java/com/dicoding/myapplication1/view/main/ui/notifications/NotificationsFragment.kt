@@ -37,7 +37,7 @@ class NotificationsFragment : Fragment() {
         viewModel.getAllPost()
 
         viewModel.allpost.observe(viewLifecycleOwner) { postResponse ->
-            setStoryData(postResponse)
+            setPostData(postResponse)
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) {
@@ -51,7 +51,7 @@ class NotificationsFragment : Fragment() {
         return (binding.root)
     }
 
-    private fun setStoryData(postResponse: PostResponse) {
+    private fun setPostData(postResponse: PostResponse) {
         val consumerStory = postResponse.data
         val adapater = PostAdapter()
         adapater.submitList(consumerStory)

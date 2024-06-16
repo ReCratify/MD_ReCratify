@@ -19,6 +19,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.detail.DetailYoutubeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.detail.DetailPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.forgot.CreatePasswordActivity"
             android:exported="false" />
         <activity

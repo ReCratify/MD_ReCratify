@@ -1,5 +1,6 @@
 package com.dicoding.myapplication1.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.myapplication1.data.response.DataItem
 import com.dicoding.myapplication1.databinding.ItemPostBinding
+import com.dicoding.myapplication1.view.detail.DetailPostActivity
 
 class PostAdapter : ListAdapter<DataItem, PostAdapter.MyViewHolder>(DIFF_CALLBACK) {
     class MyViewHolder (val binding: ItemPostBinding) : RecyclerView.ViewHolder(binding.root){
@@ -28,7 +30,15 @@ class PostAdapter : ListAdapter<DataItem, PostAdapter.MyViewHolder>(DIFF_CALLBAC
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val post = getItem(position)
-        holder.bind(post)
+        if (post != null) {
+            holder.bind(post)
+            holder.itemView.setOnClickListener {
+                val intent = Intent(holder.itemView.context, DetailPostActivity::class.java).apply {
+                    putExtra(DetailPostActivity.EXTRA_POST_ID, post.postId)
+                }
+                holder.itemView.context.startActivity(intent)
+            }
+        }
     }
 
     companion object{

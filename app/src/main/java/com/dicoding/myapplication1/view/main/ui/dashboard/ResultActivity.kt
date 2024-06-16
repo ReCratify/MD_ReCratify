@@ -4,10 +4,20 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.dicoding.myapplication1.R
+import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.myapplication1.data.response.YoutubeResponse
 import com.dicoding.myapplication1.databinding.ActivityResultBinding
+import com.dicoding.myapplication1.helper.ViewModelFactory
+import com.dicoding.myapplication1.view.adapter.YoutubeAdapter
 
 class ResultActivity : AppCompatActivity() {
+    private val viewModel by viewModels<YoutubeViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     private lateinit var binding: ActivityResultBinding
 
@@ -16,22 +26,39 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val imageUri = Uri.parse(intent.getStringExtra(EXTRA_IMAGE_URI))
-        imageUri?.let {
-            Log.d("Image URI", "showImage: $it")
-            binding.resultImage.setImageURI(it)
+        val layoutManager = LinearLayoutManager(this)
+        binding.rvPost.layoutManager = layoutManager
+        val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
+        binding.rvPost.addItemDecoration(itemDecoration)
+
+        val label = intent.getStringExtra("label")
+        val imageUriString = intent.getStringExtra("imageUri")
+        val imageUri = Uri.parse(imageUriString)
+        if (label != null && imageUri != null) {
+            Log.d("ResultActivity", "Label: $label, ImageUri: $imageUri")
+            viewModel.getAllVideos(label)
+        } else {
+            Toast.makeText(this, "Data not found", Toast.LENGTH_SHORT).show()
+            finish()
         }
 
-        val predictionResult = intent.getStringExtra(EXTRA_PREDICTION_RESULT)
-        val predictionScore = intent.getStringExtra(EXTRA_PREDICTION_SCORE)
+        viewModel.allvideos.observe(this) { youtubeResponse ->
+            setyoutubeData(youtubeResponse)
+        }
 
-        binding.tvPrediction.text = predictionResult
-        binding.tvConfidence.text = predictionScore
+        viewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
     }
 
-    companion object {
-        const val EXTRA_IMAGE_URI = "extra_image_uri"
-        const val EXTRA_PREDICTION_RESULT = "extra_prediction_result"
-        const val EXTRA_PREDICTION_SCORE = "extra_prediction_score"
+    private fun setyoutubeData(youtubeResponse: YoutubeResponse) {
+        val consumerStory = youtubeResponse.videos
+        val adapater = YoutubeAdapter()
+        adapater.submitList(consumerStory)
+        binding.rvPost.adapter = adapater
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

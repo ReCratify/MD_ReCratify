@@ -21,6 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivItem" />
 
+
     <TextView
         android:id="@+id/tvtitle"
         android:layout_width="0dp"
@@ -45,10 +46,9 @@
         app:cardElevation="8dp"
         app:cardMaxElevation="8dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="@+id/tvpost"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivItem">
+        app:layout_constraintTop_toBottomOf="@id/tvdescription">
 
     </androidx.cardview.widget.CardView>
 

@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val navView: BottomNavigationView = binding.navView
+        val navView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
@@ -49,6 +50,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setSelectedNavigationItem(ItemID: Int) {
-        nav
+        navView.selectedItemId = ItemID
     }
 }

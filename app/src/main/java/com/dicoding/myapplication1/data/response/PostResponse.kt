@@ -32,5 +32,8 @@ data class DataItem(
 	val uRLImage: String? = null,
 
 	@field:SerializedName("username")
-	val username: String? = null
+	val username: String? = null,
+
+	@field:SerializedName("CreatedAd")
+	val createdAd: String? = null
 )

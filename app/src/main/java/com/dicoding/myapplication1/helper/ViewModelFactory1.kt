@@ -3,7 +3,6 @@ package com.dicoding.myapplication1.helper
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.myapplication1.di.Injection
 import com.dicoding.myapplication1.di.Injection1
 import com.dicoding.myapplication1.view.main.ui.dashboard.DashboardViewModel
 

@@ -27,12 +27,6 @@ class OnboardingActivity : AppCompatActivity() {
         viewPagerAdapter = ViewPagerAdapter(this)
         binding.slideViewPager.adapter = viewPagerAdapter
 
-        binding.backbtn.setOnClickListener {
-            if (getitem(0) > 0) {
-                binding.slideViewPager.currentItem = getitem(-1)
-            }
-        }
-
         binding.nextbtn.setOnClickListener {
             if (binding.slideViewPager.currentItem < (viewPagerAdapter.count - 1)) {
                 binding.slideViewPager.currentItem = getitem(1)
@@ -43,14 +37,30 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
 
+        binding.slideViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+                //Do Nothing
+            }
+
+            override fun onPageSelected(position: Int) {
+                setUpIndicator(position)
+                binding.nextbtn.visibility = if (position == viewPagerAdapter.count - 1) View.VISIBLE else View.INVISIBLE
+            }
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                // Do Nothing
+            }
+        })
+
         binding.skipButton.setOnClickListener {
             val intent = Intent(this@OnboardingActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
-
-        setUpIndicator(0)
-        binding.slideViewPager.addOnPageChangeListener(viewListener)
 
         supportActionBar?.hide()
     }
@@ -69,17 +79,6 @@ class OnboardingActivity : AppCompatActivity() {
         }
 
         dots[position].setTextColor(resources.getColor(R.color.active, applicationContext.theme))
-    }
-
-    private val viewListener: ViewPager.OnPageChangeListener = object : ViewPager.OnPageChangeListener {
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-
-        override fun onPageSelected(position: Int) {
-            setUpIndicator(position)
-            binding.backbtn.visibility = if (position > 0) View.VISIBLE else View.INVISIBLE
-        }
-
-        override fun onPageScrollStateChanged(state: Int) {}
     }
 
     private fun getitem(i: Int): Int {

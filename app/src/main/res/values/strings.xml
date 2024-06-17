@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Recratify</string>
+    <string name="app_name">ReCratify</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -66,4 +66,7 @@
     <string name="upload_success">Upload berhasil</string>
     <string name="text_home">Do you feel the temperature HOTTER than last Year ?</string>
     <string name="new_password_textView">Your New Password Must Be Differnt From Previously Used Password</string>
+    <string name="analysis_failed">Gagal mendapatkan hasil analisis</string>
+    <string name="mulai">Start</string>
+    <string name="lewati">Skip</string>
 </resources>

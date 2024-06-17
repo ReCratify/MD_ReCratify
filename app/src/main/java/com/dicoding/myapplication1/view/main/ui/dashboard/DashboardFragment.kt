@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dicoding.myapplication1.R
+import com.dicoding.myapplication1.data.response.Response
 import com.dicoding.myapplication1.databinding.FragmentDashboardBinding
 import com.dicoding.myapplication1.di.getImageUri
 import com.dicoding.myapplication1.di.reduceFileImage
@@ -63,9 +64,17 @@ class DashboardFragment : Fragment() {
         binding.cameraButton.setOnClickListener { startCamera() }
         binding.analyzeButton.setOnClickListener { analyze() }
 
-        viewModel.analyzeResult.observe(viewLifecycleOwner){ modelResponse ->
-            modelResponse.label?.let { label ->
-                handleLabelResult(label)
+        viewModel.analyzeResult.observe(viewLifecycleOwner){ response ->
+            response?.let { data ->
+                val label = data.data?.label
+                if (label != null) {
+                    val intent = Intent(requireContext(), ResultActivity::class.java)
+                    intent.putExtra("label", label)
+                    startActivity(intent)
+                } else {
+                    Log.e("DashboardFragment", "Label null dalam respons model")
+                    showToast(getString(R.string.analysis_failed))
+                }
             }
         }
 
@@ -111,16 +120,6 @@ class DashboardFragment : Fragment() {
             viewModel.analyzeImage(imageFile)
             showLoading(true)
         }?:showToast(getString(R.string.empty_image_warning))
-    }
-
-    private fun handleLabelResult(label: String) {
-        val intent = Intent(requireContext(), ResultActivity::class.java)
-
-        // Mengirim label dan URI gambar sebagai data ekstra
-        intent.putExtra("label", label)
-        intent.putExtra("imageUri", currentImageUri.toString())
-
-        startActivity(intent)
     }
 
     private fun showLoading(isLoading: Boolean) {

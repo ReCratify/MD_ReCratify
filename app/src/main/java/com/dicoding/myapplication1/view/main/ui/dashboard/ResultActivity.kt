@@ -1,6 +1,5 @@
 package com.dicoding.myapplication1.view.main.ui.dashboard
 
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -32,10 +31,9 @@ class ResultActivity : AppCompatActivity() {
         binding.rvPost.addItemDecoration(itemDecoration)
 
         val label = intent.getStringExtra("label")
-        val imageUriString = intent.getStringExtra("imageUri")
-        val imageUri = Uri.parse(imageUriString)
-        if (label != null && imageUri != null) {
-            Log.d("ResultActivity", "Label: $label, ImageUri: $imageUri")
+
+        if (label != null ) {
+            Log.d("ResultActivity", "Label: $label")
             viewModel.getAllVideos(label)
         } else {
             Toast.makeText(this, "Data not found", Toast.LENGTH_SHORT).show()

@@ -15,6 +15,7 @@
     <color name="ijo_muda">#816DD18D</color>
     <color name="grey">#787C78</color>
     <color name="back_ground">#eaeaea</color>
+    <color name="divider_color">#E0E0E0</color>
 
     //onboarding colors
     <color name="background">#F0F4F3</color>

@@ -68,7 +68,6 @@ class OnboardingActivity : AppCompatActivity() {
     private fun setUpIndicator(position: Int) {
         dots = Array(3) { TextView(this) }
         binding.indicatorLayout.removeAllViews()
-
         for (i in dots.indices) {
             dots[i] = TextView(this).apply {
                 text = Html.fromHtml("&#8226")

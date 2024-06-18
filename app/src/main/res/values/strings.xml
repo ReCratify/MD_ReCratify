@@ -67,6 +67,6 @@
     <string name="text_home">Do you feel the temperature HOTTER than last Year ?</string>
     <string name="new_password_textView">Your New Password Must Be Differnt From Previously Used Password</string>
     <string name="analysis_failed">Gagal mendapatkan hasil analisis</string>
-    <string name="mulai">Start</string>
+    <string name="mulai">Lets Go</string>
     <string name="lewati">Skip</string>
 </resources>

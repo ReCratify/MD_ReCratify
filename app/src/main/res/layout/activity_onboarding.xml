@@ -11,15 +11,14 @@
         android:id="@+id/skipButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:background="#00000000"
         android:text="@string/lewati"
+        android:layout_marginEnd="16dp"
         android:textColor="@color/buttontext"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.959"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/slideViewPager"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/slideViewPager"
@@ -31,17 +30,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-
     <Button
         android:id="@+id/nextbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00000000"
         android:text="@string/mulai"
-        android:textSize="20sp"
         android:textColor="@color/buttontext"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/slideViewPager"
+        app:layout_constraintLeft_toLeftOf="@id/slideViewPager"
+        app:layout_constraintRight_toRightOf="@id/slideViewPager"
+        />
 
     <LinearLayout
         android:id="@+id/indicator_layout"
@@ -52,6 +52,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

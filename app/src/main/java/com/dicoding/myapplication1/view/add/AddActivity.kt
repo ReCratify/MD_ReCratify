@@ -36,10 +36,10 @@ class AddActivity : AppCompatActivity() {
             showLoading(false)
             if (result.error == true) {
                 showToast(result.message ?: getString(R.string.upload_failed))
+                finish()
             } else {
                 showToast(getString(R.string.upload_success))
                 MainActivity().setSelectedNavigationItem(R.id.navigation_notifications)
-                finish()
             }
         }
 

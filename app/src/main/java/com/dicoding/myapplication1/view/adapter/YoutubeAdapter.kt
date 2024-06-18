@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.annotation.GlideModule
 import com.dicoding.myapplication1.data.response.VideosItem
 import com.dicoding.myapplication1.databinding.ItemYoutubeBinding
-import com.dicoding.myapplication1.view.main.ui.dashboard.VideoActivity
 
 @GlideModule
 class YoutubeAdapter : ListAdapter<VideosItem, YoutubeAdapter.MyViewHolder>(DIFF_CALLBACK) {
@@ -24,11 +23,9 @@ class YoutubeAdapter : ListAdapter<VideosItem, YoutubeAdapter.MyViewHolder>(DIFF
                 .into(binding.ivItem)
 
             binding.root.setOnClickListener {
-                val context = binding.root.context
-                val intent = Intent(context, VideoActivity::class.java).apply {
-                    putExtra(VideoActivity.EXTRA_VIDEO_URL, youtube.uRLVideo)
-                }
-                context.startActivity(intent)
+                val videoUrl = youtube.uRLVideo
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl))
+                binding.root.context.startActivity(intent)
             }
         }
     }

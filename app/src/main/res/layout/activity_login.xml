@@ -18,19 +18,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/loginTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="@string/masuk"
-        android:textColor="@color/black"
-        android:fontFamily="@font/merriweather_sans_regular"
-        android:textSize="32sp"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/ivlogin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="23:9"
+        android:src="@drawable/lab"/>
 
     <TextView
         android:id="@+id/termAndPrivacy"
@@ -40,10 +37,12 @@
         android:gravity="center"
         android:textColor="@color/black"
         android:text="@string/policy"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/ivlogin" />
 
     <TextView
         android:id="@+id/loginTextView"
@@ -74,7 +73,7 @@
         style="@style/CustomTextInputLayout"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"

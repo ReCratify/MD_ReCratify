@@ -4,7 +4,7 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="teal_700">#FFF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
@@ -12,7 +12,7 @@
     <color name="pink_500">#D81B60</color>
     <color name="pink_200">#FF8FAF</color>
     <color name="ijo">#227D3F</color>
-    <color name="ijo_muda">#816DD18D</color>
+    <color name="ijo_muda">#3bbf3b</color>
     <color name="grey">#787C78</color>
     <color name="back_ground">#eaeaea</color>
     <color name="divider_color">#E0E0E0</color>

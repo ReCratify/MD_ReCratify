@@ -11,9 +11,13 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.myapplication1.R
+import com.dicoding.myapplication1.data.response.PostUserResponse
 import com.dicoding.myapplication1.databinding.FragmentProfilBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory
+import com.dicoding.myapplication1.view.adapter.UserAdapter
 import com.dicoding.myapplication1.view.splashscreen.SplashActivity
 
 class ProfilFragment : Fragment() {
@@ -30,12 +34,39 @@ class ProfilFragment : Fragment() {
     ): View? {
         binding = FragmentProfilBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
+
+        val layoutManager = LinearLayoutManager(requireContext())
+        binding.rvPost.layoutManager = layoutManager
+        val itemDecoration = DividerItemDecoration(requireContext(), layoutManager.orientation)
+        binding.rvPost.addItemDecoration(itemDecoration)
+
+        viewModel.getUserPost()
+
+        viewModel.userpost.observe(viewLifecycleOwner) {  postUserResponse->
+            setUserData(postUserResponse )
+        }
+
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            showLoading(it)
+        }
+
         return (binding.root)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_home, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun setUserData(postUserResponse: PostUserResponse) {
+        val consumerUser = postUserResponse.data
+        val adapater = UserAdapter()
+        adapater.submitList(consumerUser)
+        binding.rvPost.adapter = adapater
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

@@ -1,8 +1,6 @@
 package com.dicoding.myapplication1.data.retrofit
 
 import com.dicoding.myapplication1.data.response.ApiResponse
-import com.dicoding.myapplication1.data.response.ModelResponse
-import com.dicoding.myapplication1.data.response.Response
 import okhttp3.MultipartBody
 import retrofit2.http.Multipart
 import retrofit2.http.POST

@@ -45,40 +45,28 @@
         app:layout_constraintTop_toBottomOf="@+id/ivlogin" />
 
     <TextView
-        android:id="@+id/loginTextView"
+        android:id="@+id/tvSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="24dp"
-        android:text="Login"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
         android:textColor="@color/black"
+        android:text="@string/sign_in"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/daftarTextView"
-        app:layout_constraintTop_toBottomOf="@id/termAndPrivacy" />
-
-    <TextView
-        android:id="@+id/daftarTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/daftar"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@id/loginTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/termAndPrivacy" />
+        app:layout_constraintTop_toBottomOf="@+id/termAndPrivacy" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
         style="@style/CustomTextInputLayout"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginTextView">
+        app:layout_constraintTop_toBottomOf="@id/tvSign">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
@@ -147,6 +135,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/forgotpasswordTextView" />
 
+    <TextView
+        android:id="@+id/signupTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/account"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="@id/passwordEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+
+    <TextView
+        android:id="@+id/daftarTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/daftar"
+        android:textColor="#0386D0"
+        app:layout_constraintStart_toStartOf="@id/signupTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+
     <ImageView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -164,7 +173,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

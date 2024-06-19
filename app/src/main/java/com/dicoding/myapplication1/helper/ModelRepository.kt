@@ -1,8 +1,6 @@
 package com.dicoding.myapplication1.helper
 
 import com.dicoding.myapplication1.data.response.ApiResponse
-import com.dicoding.myapplication1.data.response.ModelResponse
-import com.dicoding.myapplication1.data.response.Response
 import com.dicoding.myapplication1.data.retrofit.ApiService1
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody

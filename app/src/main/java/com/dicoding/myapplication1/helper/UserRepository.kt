@@ -7,6 +7,7 @@ import com.dicoding.myapplication1.data.response.FileUploadResponse
 import com.dicoding.myapplication1.data.response.ForgotResponse
 import com.dicoding.myapplication1.data.response.LoginResponse
 import com.dicoding.myapplication1.data.response.PostResponse
+import com.dicoding.myapplication1.data.response.PostUserResponse
 import com.dicoding.myapplication1.data.response.RegisterResponse
 import com.dicoding.myapplication1.data.response.ResetResponse
 import com.dicoding.myapplication1.data.response.VerifyResponse
@@ -30,6 +31,10 @@ class UserRepository private constructor(
 
     fun getSession(): Flow<UserModel> {
         return userPreference.getSession()
+    }
+
+    fun getUsername(): Flow<String> {
+        return userPreference.getUsernameFlow()
     }
 
     suspend fun logout() {
@@ -67,6 +72,10 @@ class UserRepository private constructor(
 
     suspend fun getDetailId(postId: String): DetailPostResponse {
         return apiService.getDetailId(postId)
+    }
+
+    suspend fun getUserPost(): PostUserResponse {
+        return apiService.getUserPost()
     }
 
     suspend fun getAllvideos(label: String): YoutubeResponse {

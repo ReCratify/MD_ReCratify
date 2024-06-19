@@ -5,6 +5,7 @@ import com.dicoding.myapplication1.data.response.FileUploadResponse
 import com.dicoding.myapplication1.data.response.ForgotResponse
 import com.dicoding.myapplication1.data.response.LoginResponse
 import com.dicoding.myapplication1.data.response.PostResponse
+import com.dicoding.myapplication1.data.response.PostUserResponse
 import com.dicoding.myapplication1.data.response.RegisterResponse
 import com.dicoding.myapplication1.data.response.ResetResponse
 import com.dicoding.myapplication1.data.response.VerifyResponse
@@ -64,8 +65,12 @@ interface ApiService {
     @GET("detailpost/{postid}")
     suspend fun getDetailId(@Path("postid") id: String): DetailPostResponse
 
+    @GET("userpost")
+    suspend fun getUserPost(): PostUserResponse
+
     @GET("allvideos/{label}")
     suspend fun getAllvideos(@Path("label") label: String): YoutubeResponse
+
 
     @Multipart
     @POST("upload")

@@ -7,10 +7,10 @@
 
 
     //login //register
-    <string name="login">Masuk</string>
+    <string name="login">Login</string>
     <string name="policy">ReCratify</string>
     <string name="masuk">Hello !!</string>
-    <string name="daftar">Daftar</string>
+    <string name="daftar">Sign Up</string>
     <string name="lupa_password">Lupa password?</string>
     <string name="signup">Daftar</string>
     <string name="title_signup_page">Please Complete Your Data First</string>
@@ -69,4 +69,6 @@
     <string name="analysis_failed">Gagal mendapatkan hasil analisis</string>
     <string name="mulai">Lets Go</string>
     <string name="lewati">Skip</string>
+    <string name="account">Don\'t Have an account ?</string>
+    <string name="sign_in">Sign In</string>
 </resources>

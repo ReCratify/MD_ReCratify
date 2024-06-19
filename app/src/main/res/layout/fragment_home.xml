@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@color/background"
+    android:background="@color/main_background"
     tools:context=".view.main.ui.home.HomeFragment">
 
     <TextView
@@ -14,8 +14,9 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         tools:text="03 10"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:textColor="@color/ijo_muda"
+        android:textColor="@color/clock"
         android:textSize="80sp"
         android:textStyle="bold" />
 
@@ -68,12 +69,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello Username"
+            android:textColor="@color/black"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/weather_bg"/>
         <TextView
             android:id="@+id/tv_mandatory"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Do you feel the temperature HOTTER than last Year ?"
@@ -81,6 +84,24 @@
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_username"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_person"
+            android:layout_marginRight="30dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_trash"
+            android:layout_marginLeft="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.dicoding.myapplication1.view.adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,8 +14,10 @@ import com.dicoding.myapplication1.view.detail.DetailPostActivity
 
 class PostAdapter : ListAdapter<DataItem, PostAdapter.MyViewHolder>(DIFF_CALLBACK) {
     class MyViewHolder (val binding: ItemPostBinding) : RecyclerView.ViewHolder(binding.root){
+        @SuppressLint("SetTextI18n")
         fun bind(post: DataItem) {
-            binding.tvname.text = post.username
+            val postUser = "Post By : "
+            binding.tvname.text = postUser + post.username
             binding.tvtitle.text = post.title
             binding.tvdescription.text = post.description
             Glide.with(binding.root.context)

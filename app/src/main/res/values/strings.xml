@@ -8,7 +8,7 @@
 
     //login //register
     <string name="login">Login</string>
-    <string name="policy">ReCratify</string>
+    <string name="title_login">ReCratify</string>
     <string name="masuk">Hello !!</string>
     <string name="daftar">Sign Up</string>
     <string name="lupa_password">Lupa password?</string>

@@ -57,6 +57,7 @@ dependencies {
 
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation ("androidx.fragment:fragment-ktx:1.7.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")

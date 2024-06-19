@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/ijo_muda" android:state_checked="true" />  <!-- Dark Purple for active state -->
+    <item android:color="#B0BEC5" android:state_checked="false" /> <!-- Grey for inactive state -->
+</selector>

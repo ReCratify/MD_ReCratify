@@ -20,42 +20,36 @@
 
     <ImageView
         android:id="@+id/ivlogin"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintDimensionRatio="23:9"
         android:src="@drawable/lab"/>
 
     <TextView
         android:id="@+id/termAndPrivacy"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
         android:textColor="@color/black"
-        android:text="@string/policy"
-        android:textSize="25sp"
+        android:text="@string/title_login"
+        android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivlogin" />
+        app:layout_constraintLeft_toLeftOf="@id/ivlogin"
+        app:layout_constraintRight_toRightOf="@id/ivlogin"
+        app:layout_constraintTop_toBottomOf="@id/ivlogin"/>
 
     <TextView
         android:id="@+id/tvSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
         android:textColor="@color/black"
         android:text="@string/sign_in"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/termAndPrivacy" />
+        app:layout_constraintLeft_toLeftOf="@id/emailEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@id/termAndPrivacy"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
@@ -125,14 +119,12 @@
         android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="25dp"
         android:text="@string/login"
         android:background="@drawable/button_bg"
         android:textColor="@color/back_ground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/passwordEditTextLayout"
+        app:layout_constraintRight_toRightOf="@id/passwordEditTextLayout"
         app:layout_constraintTop_toBottomOf="@id/forgotpasswordTextView" />
 
     <TextView
@@ -141,19 +133,19 @@
         android:layout_height="wrap_content"
         android:text="@string/account"
         android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toLeftOf="@id/passwordEditTextLayout"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="@id/loginButton"
         app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
     <TextView
         android:id="@+id/daftarTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/daftar"
         android:textColor="#0386D0"
-        app:layout_constraintStart_toStartOf="@id/signupTextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/signupTextView"
         app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
     <ImageView

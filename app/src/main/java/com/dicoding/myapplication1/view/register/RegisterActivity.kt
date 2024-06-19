@@ -59,11 +59,7 @@ class RegisterActivity : AppCompatActivity() {
 
             viewModel.register(name, email, password)
         }
-        binding.daftarTextView.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-        binding.loginTextView.setOnClickListener {
+        binding.backRegisterBtn.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }

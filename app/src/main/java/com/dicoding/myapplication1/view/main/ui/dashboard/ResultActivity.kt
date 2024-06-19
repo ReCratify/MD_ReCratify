@@ -1,9 +1,12 @@
 package com.dicoding.myapplication1.view.main.ui.dashboard
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -47,6 +50,7 @@ class ResultActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this) {
             showLoading(it)
         }
+        supportActionBar?.hide()
     }
 
     private fun setyoutubeData(youtubeResponse: YoutubeResponse) {
@@ -59,4 +63,5 @@ class ResultActivity : AppCompatActivity() {
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
+
 }

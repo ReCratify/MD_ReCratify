@@ -16,7 +16,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dicoding.myapplication1.R
-import com.dicoding.myapplication1.data.response.Response
 import com.dicoding.myapplication1.databinding.FragmentDashboardBinding
 import com.dicoding.myapplication1.di.getImageUri
 import com.dicoding.myapplication1.di.reduceFileImage

@@ -46,6 +46,7 @@ class AddActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this){
             showLoading(it)
         }
+        supportActionBar?.hide()
 
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { startCamera() }

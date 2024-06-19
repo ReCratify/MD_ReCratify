@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dicoding.myapplication1.data.response.ErrorResponse
-import com.dicoding.myapplication1.data.response.PostResponse
 import com.dicoding.myapplication1.data.response.YoutubeResponse
 import com.dicoding.myapplication1.helper.UserRepository
 import com.google.gson.Gson

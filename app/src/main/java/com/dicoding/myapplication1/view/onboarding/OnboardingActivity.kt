@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.dicoding.myapplication1.R
 import com.dicoding.myapplication1.databinding.ActivityOnboardingBinding
 import com.dicoding.myapplication1.view.login.LoginActivity

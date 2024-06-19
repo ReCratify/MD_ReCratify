@@ -36,7 +36,6 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
-        mlModelBinding = true
     }
 }
 
@@ -63,6 +62,5 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
-    implementation ("com.google.android.exoplayer:exoplayer:2.15.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
 }

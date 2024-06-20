@@ -33,10 +33,6 @@ class UserRepository private constructor(
         return userPreference.getSession()
     }
 
-    fun getUsername(): Flow<String> {
-        return userPreference.getUsernameFlow()
-    }
-
     suspend fun logout() {
         userPreference.logout()
     }

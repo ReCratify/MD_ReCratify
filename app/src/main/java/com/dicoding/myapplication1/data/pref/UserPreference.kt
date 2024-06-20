@@ -24,11 +24,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             )
         }
     }
-    fun getUsernameFlow(): Flow<String> {
-        return dataStore.data.map { preferences ->
-            preferences[USERNAME_KEY] ?: ""
-        }
-    }
 
     suspend fun saveSession(user: UserModel) {
         dataStore.edit { preferences ->
@@ -53,7 +48,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         private val EMAIL_KEY = stringPreferencesKey("email")
         private val TOKEN_KEY = stringPreferencesKey("token")
         private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
-        private val USERNAME_KEY = stringPreferencesKey("username")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
             return INSTANCE ?: synchronized(this) {

@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.myapplication1.di.Injection
-import com.dicoding.myapplication1.view.main.ui.home.HomeViewModel
 import com.dicoding.myapplication1.view.main.ui.notifications.NotificationsViewModel
 import com.dicoding.myapplication1.view.add.AddViewModel
 import com.dicoding.myapplication1.view.detail.DetailPostViewModel
@@ -38,9 +37,6 @@ class ViewModelFactory (private val repository: UserRepository) : ViewModelProvi
             }
             modelClass.isAssignableFrom(CreatePasswordViewModel::class.java) -> {
                 CreatePasswordViewModel(repository) as T
-            }
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(repository) as T
             }
             modelClass.isAssignableFrom(AddViewModel::class.java) -> {
                 AddViewModel(repository) as T

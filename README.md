@@ -12,6 +12,6 @@ ReCratify is an innovative application designed to detect various types of waste
 - Allows To Scan Trash And Get Available Video Recommendations
 
 ## Permissions
-**Snapcook requires the following permissions:**
+**ReCratify requires the following permissions:**
 - Full Network Access.
 - Read and write access to external storage.

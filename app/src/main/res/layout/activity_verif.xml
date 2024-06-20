@@ -40,7 +40,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:text="Verify Password"/>
+            android:text="@string/verify_code"/>
 
     </LinearLayout>
 
@@ -56,9 +56,9 @@
 
     <ImageView
         android:id="@+id/verify_password"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:src="@drawable/forgot_password_icon"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:src="@drawable/email"
         app:layout_constraintLeft_toLeftOf="@id/verify_password_icon"
         app:layout_constraintRight_toRightOf="@id/verify_password_icon"
         app:layout_constraintTop_toTopOf="@id/verify_password_icon"

@@ -18,6 +18,21 @@ class ProfilViewModel (private val repository: UserRepository) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _username = MutableLiveData<String>()
+    val username: LiveData<String> = _username
+
+    init {
+        getUsername()
+    }
+
+    private fun getUsername() {
+        viewModelScope.launch {
+            repository.getUsername().collect {
+                _username.value = it
+            }
+        }
+    }
+
     fun getUserPost() {
         viewModelScope.launch {
             _isLoading.value = true

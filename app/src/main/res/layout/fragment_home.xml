@@ -28,6 +28,7 @@
             android:id="@+id/weather_bg"
             android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:contentDescription="@string/description"
             android:src="@drawable/weather_bg_partly_cloudy"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -44,7 +45,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="30°C" />
+            android:text="@string/_30_c" />
 
         <TextView
             android:id="@+id/location"
@@ -54,7 +55,19 @@
             app:layout_constraintLeft_toLeftOf="@id/celcius"
             app:layout_constraintRight_toRightOf="@id/celcius"
             app:layout_constraintTop_toBottomOf="@id/celcius"
-            android:text="tangerang" />
+            android:text="@string/tangerang" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/location"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/weather_icon"
@@ -65,20 +78,33 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
+            android:id="@+id/tvhello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/hello"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weather_bg"/>
+
+        <TextView
             android:id="@+id/tv_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="125dp"
+            tools:text="username"
             android:textSize="20sp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/weather_bg"/>
         <TextView
             android:id="@+id/tv_mandatory"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Do you feel the temperature HOTTER than last Year ?"
+            android:text="@string/mandatory"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -91,14 +117,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/login_person"
-            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/login_trash"
-            android:layout_marginLeft="40dp"
+            android:layout_marginEnd="40dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

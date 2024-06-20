@@ -71,4 +71,9 @@
     <string name="lewati">Skip</string>
     <string name="account">Don\'t Have an account ?</string>
     <string name="sign_in">Sign In</string>
+    <string name="verify_code">Verify Code</string>
+    <string name="tangerang">tangerang</string>
+    <string name="_30_c">30°C</string>
+    <string name="mandatory">Do you feel the temperature HOTTER than last Year ?</string>
+    <string name="hello">Hello</string>
 </resources>

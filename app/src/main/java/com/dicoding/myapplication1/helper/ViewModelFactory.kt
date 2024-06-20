@@ -13,6 +13,7 @@ import com.dicoding.myapplication1.view.forgot.VerifViewModel
 import com.dicoding.myapplication1.view.login.LoginViewModel
 import com.dicoding.myapplication1.view.main.MainViewModel
 import com.dicoding.myapplication1.view.main.ui.dashboard.YoutubeViewModel
+import com.dicoding.myapplication1.view.main.ui.home.HomeViewModel
 import com.dicoding.myapplication1.view.main.ui.profil.ProfilViewModel
 import com.dicoding.myapplication1.view.register.RegisterViewModel
 
@@ -52,6 +53,9 @@ class ViewModelFactory (private val repository: UserRepository) : ViewModelProvi
             }
             modelClass.isAssignableFrom(ProfilViewModel::class.java) -> {
                 ProfilViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+                HomeViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

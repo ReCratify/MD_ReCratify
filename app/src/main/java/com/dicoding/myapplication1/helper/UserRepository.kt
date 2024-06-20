@@ -33,6 +33,10 @@ class UserRepository private constructor(
         return userPreference.getSession()
     }
 
+    fun getUsername(): Flow<String> {
+        return userPreference.getUsernameFlow()
+    }
+
     suspend fun logout() {
         userPreference.logout()
     }
@@ -44,7 +48,8 @@ class UserRepository private constructor(
     suspend fun login(email: String, password: String): LoginResponse {
         val response = apiService.login(email, password)
         if (response.error == false) {
-            val userModel = UserModel(email, response.loginResult?.token ?: "")
+            val userModel = UserModel(email, response.loginResult?.token ?: "",
+                response.loginResult?.username ?: "")
             userPreference.saveSession(userModel)
         }
         return response

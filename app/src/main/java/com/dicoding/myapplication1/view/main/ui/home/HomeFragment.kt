@@ -12,12 +12,12 @@ import androidx.fragment.app.viewModels
 import com.dicoding.myapplication1.R
 import com.dicoding.myapplication1.databinding.FragmentHomeBinding
 import com.dicoding.myapplication1.helper.ViewModelFactory
+import com.dicoding.myapplication1.view.main.ui.profil.ProfilViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class HomeFragment : Fragment() {
-
     private val viewModel by viewModels<HomeViewModel> {
         ViewModelFactory.getInstance(requireActivity())
     }
@@ -42,7 +42,20 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         timeTv = binding.root.findViewById(R.id.currentTime)
+
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            showLoading(it)
+        }
+
+        viewModel.username.observe(viewLifecycleOwner) { username ->
+            binding.tvUsername.text = username
+        }
+
         return (binding.root)
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onResume() {

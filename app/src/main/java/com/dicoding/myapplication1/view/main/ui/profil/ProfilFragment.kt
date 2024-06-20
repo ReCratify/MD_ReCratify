@@ -50,6 +50,10 @@ class ProfilFragment : Fragment() {
             showLoading(it)
         }
 
+        viewModel.username.observe(viewLifecycleOwner) { username ->
+            binding.tvuser.text = username
+        }
+
         return (binding.root)
     }
 
